@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^$', 'core.views.index'),
     url(r'^inserir/$', 'pessoa.views.inserir'),
+    url(r'^excluir/(?P<codigo>\d+)/$', 'pessoa.views.excluir'),
     url(r'^admin/', include(admin.site.urls)),
 ]

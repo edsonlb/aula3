@@ -13,3 +13,8 @@ def inserir(request):
         pessoa.save()
     
     return HttpResponseRedirect('/')
+
+def excluir(request, codigo):
+    pessoa = Pessoa.objects.get(pk=codigo)
+    pessoa.delete()
+    return HttpResponseRedirect('/')
