@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^$', 'core.views.index'),
+    url(r'^inserir/$', 'pessoa.views.inserir'),
     url(r'^admin/', include(admin.site.urls)),
 ]

@@ -5,5 +5,23 @@
 	<body>
 		<h2>Página Index.</h2>
 		{{ msg }}
+		<hr>
+
+		<form action="/inserir/" method="POST">
+			{% csrf_token %}
+			<input type="text" value="" name="nome" placeholder="Nome...">
+			<br />
+			<br />
+			<input type="text" value="" name="idade" placeholder="Idade...">
+			<br/>
+			<br />
+			<input type="submit" value="Cadastrar">
+
+		</form>
+
+		<hr>
+		{% for pessoa in pessoas  %}
+			<li>{{ pessoa.nome }} com {{ pessoa.idade }} anos</li>
+		{% endfor %}
 	</body>
 </html>
