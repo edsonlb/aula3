@@ -9,13 +9,15 @@
 
 		<form action="/inserir/" method="POST">
 			{% csrf_token %}
-			<input type="text" value="" name="nome" placeholder="Nome...">
+			<input type="hidden" value="{{ pessoa.id }}" name="id">
+
+			<input type="text" value="{{ pessoa.nome }}" name="nome" placeholder="Nome...">
 			<br />
 			<br />
-			<input type="text" value="" name="idade" placeholder="Idade...">
+			<input type="text" value="{{ pessoa.idade }}" name="idade" placeholder="Idade...">
 			<br/>
 			<br />
-			<input type="submit" value="Cadastrar">
+			<input type="submit" value="Salvar">
 
 		</form>
 
@@ -29,7 +31,11 @@
 
 		<hr>
 		{% for pessoa in pessoas  %}
-			<li><a href="/editar/{{ pessoa.id }}/">{{ pessoa.nome }}</a> com {{ pessoa.idade }} anos <a href="/excluir/{{ pessoa.id }}/">(X)</a></li>
+			<li><a href="/editar/{{ pessoa.id }}/">{{ pessoa.nome }}</a> com {{ pessoa.idade }} anos <a href="/excluir/{{ pessoa.id }}/">(X)</a>
+			{% for tel in pessoa.telefone_set.all %}
+				{{ tel.telefone }}<br />
+			{% endfor %}
+			</li>
 		{% endfor %}
 	</body>
 </html>

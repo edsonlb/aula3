@@ -7,3 +7,7 @@ class Pessoa(models.Model):
 
     def __unicode__(self):
         return self.nome+' - '+str(self.idade)
+
+class Telefone(models.Model):
+    pessoa = models.ForeignKey(Pessoa)
+    telefone = models.CharField(max_length=9)

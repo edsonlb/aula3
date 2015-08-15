@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^$', 'core.views.index'),
     url(r'^inserir/$', 'pessoa.views.inserir'),
     url(r'^excluir/(?P<codigo>\d+)/$', 'pessoa.views.excluir'),
+    url(r'^editar/(?P<codigo>\d+)/$', 'pessoa.views.inserir'),
     url(r'^pesquisa/', 'pessoa.views.pesquisa'),
     url(r'^admin/', include(admin.site.urls)),
 ]
