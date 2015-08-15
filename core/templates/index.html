@@ -20,21 +20,16 @@
 		</form>
 
 		<hr>
-		<form action="/inserir/" method="POST">
-			{% csrf_token %}
-			<input type="text" value="" name="nome" placeholder="Nome...">
+		<form action="/pesquisa/" method="GET">
+			<input type="text" value="" name="busca" placeholder="Buscar...">
 			<br />
 			<br />
-			<input type="text" value="" name="idade" placeholder="Idade...">
-			<br/>
-			<br />
-			<input type="submit" value="Cadastrar">
-
+			<input type="submit" value="Buscar">
 		</form>
 
 		<hr>
 		{% for pessoa in pessoas  %}
-			<li>{{ pessoa.nome }} com {{ pessoa.idade }} anos <a href="/excluir/{{ pessoa.id }}/">(X)</a></li>
+			<li><a href="/editar/{{ pessoa.id }}/">{{ pessoa.nome }}</a> com {{ pessoa.idade }} anos <a href="/excluir/{{ pessoa.id }}/">(X)</a></li>
 		{% endfor %}
 	</body>
 </html>
