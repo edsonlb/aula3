@@ -1,1 +1,37 @@
-TEMPLATE
+{% load staticfiles %}
+{% load i18n %}
+<html>
+	<head>
+		<title>{% block titulo %}{% endblock %}-TITULO</title>
+
+	</head>
+	<body>
+		<div align="center"><img src="/static/logo.png"></div>
+		<h2>MENU</h2>
+		{% block menu %}MENU ORIGINAL{% endblock %}
+		<br />
+		<br />
+		<form action="/i18n/setlang/" method="POST">
+			{% csrf_token %}
+			<input name="next" type="hidden" value="/pessoa/">
+			<input name="language" type="hidden" value="pt-br">
+			<input type="submit" value="Português">
+		</form>
+		<form action="/i18n/setlang/" method="POST">
+			{% csrf_token %}
+			<input name="next" type="hidden" value="/pessoa/">
+			<input name="language" type="hidden" value="en">
+			<input type="submit" value="English">
+		</form>
+
+		<h3>CONTEUDO</h3>
+		{% block conteudo %}{% endblock %}
+		<br />
+		<br />
+
+		<h3>RODAPE</h3>
+		{% block rodape %}{% trans 'MENU NOVO' %}{% endblock %}
+		<br />
+		<br />
+	</body>
+</html>
