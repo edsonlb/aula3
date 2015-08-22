@@ -18,11 +18,10 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^$', 'core.views.index'),
-    url(r'^inserir/$', 'pessoa.views.inserir'),
-    url(r'^excluir/(?P<codigo>\d+)/$', 'pessoa.views.excluir'),
-    url(r'^editar/(?P<codigo>\d+)/$', 'pessoa.views.inserir'),
-    url(r'^pesquisa/', 'pessoa.views.pesquisa'),
+    url(r'^caminho/link1/$', 'core.views.link1', name='link1'),
+    url(r'^caminho/link2/$', 'core.views.link2', name='link2'),
+    url(r'^pessoa/', include('pessoa.urls')),
+
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^form/inserir/$', 'pessoa.views.inserirForm'),
 ]

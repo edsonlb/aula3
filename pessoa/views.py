@@ -4,6 +4,9 @@ from pessoa.models import Pessoa
 from pessoa.forms import PessoaFormulario
 from django.contrib import messages
  
+def index(request):
+    return render(request,'conteudo.html')
+
 def inserirForm(request):
     if request.method == 'POST':
         form = PessoaFormulario(request.POST)

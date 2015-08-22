@@ -4,6 +4,11 @@
 	</head>
 	<body>
 		<h2>Página Index: {{ request.session.sessao_nome }}</h2>
+		<div align="center">
+			<a href="{% url 'link1' %}">Link 1</a><br />
+			<a href="{% url 'link2' %}">Link 2</a>
+		</div>
+		<br/>
 		{{ msg }}
 		<hr>
 		Form tradicional<br />
@@ -20,7 +25,7 @@
 		</form>
 		<hr>
 		Form com FORMS<br/>
-		<form action="/form/inserir/" method="POST">
+		<form action="/pessoa/form/inserir/" method="POST">
 			{% csrf_token %}
 			{{ form.as_table }}	
 		</form>
@@ -36,7 +41,7 @@
 {% endif %}
 
 {{ form.errors }}
-<form action="/form/inserir/" method="POST">
+<form action="{% url 'inserirForm' %}" method="POST">
 	{% csrf_token %}
 	Nome:<input type="text" name="nome" value="{{ form.nome.value|default_if_none:'' }}" placeholder="Informe um nome..."><br>
 	Idade:<input type="text" name="idade" value="{{ form.idade.value|default_if_none:'' }}" placeholder="Informe um idade..."><br />

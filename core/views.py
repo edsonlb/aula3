@@ -12,3 +12,9 @@ def index(request):
         {'msg': u'É isso aí pessoal!', 
         'pessoas':pessoas, 
         'form':form})
+
+def link1(request):
+    return render(request,'link1.html')
+
+def link2(request):
+    return render(request,'link2.html')
