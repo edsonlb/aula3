@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-22 19:14+0000\n"
+"POT-Creation-Date: 2015-08-22 19:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,10 +27,14 @@ msgstr "This is my new content."
 msgid "Novo Texto!"
 msgstr "This is new!"
 
-#: pessoa/templates/conteudo.html:15 pessoa/templates/template.html:20
+#: pessoa/templates/conteudo.html:15 pessoa/templates/template.html:33
 msgid "MENU NOVO"
 msgstr "NEW MENU"
 
 #: pessoa/views.py:10
 msgid "Isso é uma vergonha."
 msgstr "This is a shame."
+
+#: pessoa/views.py:60
+msgid "Altere o registro"
+msgstr ""
