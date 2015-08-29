@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^api_manual/$', 'pessoa.views.api_manual'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
+    url(r'^copia/$', 'pessoa.views.lista_api'),
 ]

@@ -25,7 +25,7 @@ class Api_Automatica(viewsets.ModelViewSet):
     filter_backends = (filters.OrderingFilter, filters.DjangoFilterBackend,)
     ordering_fields = ('nome')
     filter_class = Filtro_Pessoa
-    permission_classes = (IsAdminUser,)
+    #permission_classes = (IsAdminUser,)
     paginate_by = 3
 
 @api_view(['POST','GET'])
@@ -57,7 +57,19 @@ def api_manual(request):
         return Response(pessoaApi.data)
 
 
+def lista_api(request):
+    print request.GET['nome']
+    resposta = request('http://apiedson.herokuapp.com/api/pessoa/?nome__icontains=edson')
+    
+    json = resposta.json()
+    pessoaApi = PessoaApi(pessoa, data=json, partial=True)
+    
+    if pessoaApi.is_valid():
+        pessoaApi.save()
 
+        messages.success(request, 'Listagem API!')
+    
+    return HttpResponseRedirect('/')
 
 
 
