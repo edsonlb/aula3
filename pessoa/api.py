@@ -4,4 +4,4 @@ from pessoa.models import Pessoa
 class PessoaApi(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Pessoa
-        fields = ('id','nome','idade')
+        fields = ('id','nome','idade','ano')
