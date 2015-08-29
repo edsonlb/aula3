@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import rest_framework_filters as filtro
 from rest_framework.permissions import IsAdminUser
+from django.views.decorators.csrf import csrf_exempt
 # FIM API
 
 class Filtro_Pessoa(filtro.FilterSet):
@@ -19,6 +20,7 @@ class Filtro_Pessoa(filtro.FilterSet):
         model = Pessoa
         fields = ['nome','ano']
 
+@csrf_exempt
 class Api_Automatica(viewsets.ModelViewSet):
     queryset = Pessoa.objects.all()
     serializer_class = PessoaApi
