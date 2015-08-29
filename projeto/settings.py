@@ -32,16 +32,11 @@ INSTALLED_APPS = (
     'pessoa',
 )
 
-#REST_FRAMEWORK = {
-#    'DEFAULT_PERMISSION_CLASSES':('rest_framework.permissions.IsAdminUser',),
-#    'PAGE_SIZE': 5
-#}
-
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny'
-    ]
+    'DEFAULT_PERMISSION_CLASSES':('rest_framework.permissions.AllowAny',),
+    'PAGE_SIZE': 5
 }
+
 
 REST_SESSION_LOGIN = False
 
