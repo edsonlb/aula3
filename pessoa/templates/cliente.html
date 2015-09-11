@@ -1,9 +1,9 @@
 <html>
 
 <body>
-	<form action="http://apiedson.herokuapp.com/api/pessoa/" 
+	<form action="http://127.0.0.1/api/pessoa/" 
 	method="POST">
-		
+		{% csrf_token %}
 		Nome: <input type="text" name="nome" value="">
 		Idade: <input type="text" name="idade" value="">
 		Ano: <input type="text" name="ano" value="">

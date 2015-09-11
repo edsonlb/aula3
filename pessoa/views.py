@@ -20,7 +20,7 @@ class Filtro_Pessoa(filtro.FilterSet):
         model = Pessoa
         fields = ['nome','ano']
 
-@csrf_exempt
+
 class Api_Automatica(viewsets.ModelViewSet):
     queryset = Pessoa.objects.all()
     serializer_class = PessoaApi
