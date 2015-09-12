@@ -20,4 +20,9 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^consulta/api/$', 'pessoa.views.consulta_api'),
+    url(r'^incluir/api/$', 'pessoa.views.incluir_api'),
+    url(r'^alterar/api/$', 'pessoa.views.alterar_api'),
+
+
+   
 ]

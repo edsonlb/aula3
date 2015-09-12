@@ -11,8 +11,74 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import rest_framework_filters as filtro
 from rest_framework.permissions import IsAdminUser
-from django.views.decorators.csrf import csrf_exempt
 # FIM API
+
+# CLIENTE API
+#from django.shortcuts import HttpResponse
+import requests
+from requests.auth import HTTPDigestAuth
+# FIM CLIENTE API
+
+# CLIENTE API DEFINIÇÕES
+def consulta_api(request):
+    r = requests.get('https://apiedson.herokuapp.com/api/pessoa/?nome__icontains=a&ordering=nome', 
+        auth=HTTPDigestAuth('admin','admin'))
+    #print r
+    #print ' '
+    #print r.json()
+
+    pessoas = r.json()['results']
+
+    #print pessoas
+
+    for pessoa in pessoas:
+        print pessoa['nome'] + ' = ' + str(pessoa['idade'])
+
+    return HttpResponse('SELECT - OK')
+
+def incluir_api(request):
+    valores = {'nome':'Zezinho', 'idade':'22', 'ano':'1'}
+
+    r = requests.post('https://apiedson.herokuapp.com/api/pessoa/', 
+        valores, 
+        auth=HTTPDigestAuth('admin','admin') )
+
+    print r.json()
+
+    return HttpResponse('INSERT - OK')
+
+def alterar_api(request):
+    valores = {
+    'id': '1', 
+    'nome':'Alterado Edson Lopes 1', 
+    'idade':'99', 
+    'ano':'2020'}
+
+    r = requests.post('https://apiedson.herokuapp.com/api_manual/',
+        valores,
+        auth=HTTPDigestAuth('admin','admin'))
+
+    print r
+
+    return HttpResponse('UPDATE - OK')
+
+
+
+
+
+
+
+
+
+
+# FIM CLIENTE API DEFINIÇÕES
+
+
+
+
+
+
+
 
 class Filtro_Pessoa(filtro.FilterSet):
     nome = filtro.AllLookupsFilter(name='nome')
