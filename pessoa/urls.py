@@ -6,5 +6,5 @@ urlpatterns = patterns('pessoa.views',
     url(r'^excluir/(?P<codigo>\d+)/$', 'excluir'),
     url(r'^editar/(?P<codigo>\d+)/$', 'inserir'),
     url(r'^pesquisa/', 'pesquisa'),
-    url(r'^form/inserir/$', 'inserirForm', name='inserirForm'),
+    #url(r'^form/inserir/$', 'inserirForm', name='inserirForm'),
 )
